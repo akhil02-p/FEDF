@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>📖 Book World</title>
+<style>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #f7f8f8, #e2e8f0);
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #1a202c;
+  margin-bottom: 30px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.book-card {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.book-card h3 {
+  margin: 0 0 5px;
+  font-size: 18px;
+  color: #2d3748;
+}
+
+.book-card p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+.book-card span {
+  font-weight: bold;
+  color: #1a202c;
+}
+
+button {
+  background: #38a169;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #2f855a;
+}
+
+.cart-container {
+  max-width: 600px;
+  margin: 40px auto 20px auto;
+  background: #edf2f7;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.cart-container h2 {
+  margin-top: 0;
+  color: #1a202c;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #cbd5e0;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-total {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: right;
+}
+</style>
+</head>
+<body>
+
+<h1>📖 Book World</h1>
+
+<div class="container" id="bookContainer"></div>
+
+<div class="cart-container">
+  <h2>🛒 Your Cart</h2>
+  <div id="cartItems"></div>
+  <div class="cart-total" id="cartTotal">Total: ₹0</div>
+</div>
+
+<script type="module">
+import { displayBooks } from './books.js';
+import { updateCartUI } from './ui.js';
+import { cart } from './cart.js';
+
+// Render books and cart on load
+displayBooks();
+updateCartUI(cart);
+</script>
+
+</body>
+</html>

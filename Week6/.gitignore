@@ -1,0 +1,8 @@
+﻿node_modules/
+week 8/node_modules/
+.vscode/
+*.mp4
+*.rar
+*.zip
+.DS_Store
+
